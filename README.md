@@ -7,4 +7,4 @@
 **Game №2Even**
 
 View the recording at:
-[![asciicast]({https://asciinema.org/a/7psX8BrLJUo8XcUTUS0IynlEH).svg)]({https://asciinema.org/a/7psX8BrLJUo8XcUTUS0IynlEH})
+[![asciicast](https://asciinema.org/a/7psX8BrLJUo8XcUTUS0IynlEH.svg)](https://asciinema.org/a/7psX8BrLJUo8XcUTUS0IynlEH)
