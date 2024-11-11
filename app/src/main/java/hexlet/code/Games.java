@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Random;
 import java.util.Arrays; // for game №3 calc
 import java.util.List; // for game №3 calc
-import java.math.BigInteger; // for game №4 gcd
+import java.math.BigInteger;// for game №4 gcd
 
 public class Games {
 
@@ -102,19 +102,26 @@ public class Games {
 
         for (var i = 0; i < Engine.rounds; i++) {
 
-            int[] array = new int[10];
+            int arrayLength = random.nextInt(5) + 5;
+            int[] array = new int[arrayLength];
 
             int step = random.nextInt(9) + 1;
             int start = random.nextInt(14) + 1;
 
-            for (int j = 0; j < 10; j++) {
+            for (int j = 0; j < arrayLength; j++) {
                 array[j] = start + j * step;
             }
 
-            int indexFromArray = random.nextInt(9);
+            int indexFromArray = random.nextInt(arrayLength - 1);
+
             String arrayToString = Arrays.toString(array);
-            String hideNumber = arrayToString.replaceAll(String.valueOf(array[indexFromArray]), "..");
-            question[i] = hideNumber;
+            String elementToHide = String.valueOf(array[indexFromArray]);
+            String oneElement = "\\b" + elementToHide + "\\b";
+            String arrayHideNumber = arrayToString.replaceFirst(oneElement, "..");
+            arrayHideNumber = arrayHideNumber.replace("[", "").replace("]", "")
+                    .replace(",", "");
+
+            question[i] = arrayHideNumber;
             correctAnswer[i] = String.valueOf(array[indexFromArray]);
 
         }
@@ -122,3 +129,4 @@ public class Games {
         return 0;
     }
 }
+
