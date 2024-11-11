@@ -1,8 +1,9 @@
 package hexlet.code;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
+import java.util.Arrays; // for game №3 calc
+import java.util.List; // for game №3 calc
+import java.math.BigInteger; // for game №4 gcd
 
 public class Games {
 
@@ -21,7 +22,6 @@ public class Games {
             correctAnswer[i] = (randomNumber % 2 == 0) ? "yes" : "no";
         }
         Engine.skeletonOfGames(mainGameQuestion, question, correctAnswer);
-
         return 0;
     }
 
@@ -61,62 +61,33 @@ public class Games {
         Engine.skeletonOfGames(mainGameQuestion, question, correctAnswer);
         return 0;
     }
+
+
+    // Game №4 GCD
+    public static int gcd() {
+        Random random = new Random();
+        String mainGameQuestion = "Find the greatest common divisor of given numbers.";
+
+        String[] question = new String[Engine.rounds];
+        String[] correctAnswer = new String[Engine.rounds];
+
+        for (var i = 0; i < Engine.rounds; i++) {
+
+            int randomCommon = random.nextInt(10) + 2;
+            int randomNumber1 = randomCommon * (random.nextInt(10) + 1);
+            int randomNumber2 = randomCommon * (random.nextInt(10) + 1);
+
+            BigInteger bigA = BigInteger.valueOf(randomNumber1);
+            BigInteger bigB = BigInteger.valueOf(randomNumber2);
+
+            String gcd = String.valueOf((bigA).gcd(bigB));
+
+            question[i] = randomNumber1 + " " + randomNumber2;
+            correctAnswer[i] = gcd;
+        }
+        Engine.skeletonOfGames(mainGameQuestion, question, correctAnswer);
+        return 0;
+    }
 }
 
 
-
-//        while (count < rounds) {
-//            int randomNumber1 = random.nextInt(19) + 1;
-//            int randomNumber2 = random.nextInt(9) + 1;
-//
-//            String plus = randomNumber1 + "+" + randomNumber2;
-//            String minus = randomNumber1 + "-" + randomNumber2;
-//            String mult = randomNumber1 + "*" + randomNumber2;
-//
-//            int resultPlus = randomNumber1 + randomNumber2;
-//            int resultMinus = randomNumber1 - randomNumber2;
-//            int resultMult = randomNumber1 * randomNumber2;
-//
-//            List<String> givenList = Arrays.asList(plus, minus, mult);
-//            Random rand = new Random();
-//            String randomQuestion = givenList.get(rand.nextInt(givenList.size()));
-//
-//            System.out.println("Question: " + randomQuestion);
-//            System.out.println("Your answer: ");
-//            String answer = scanner.nextLine();
-//
-//            if (randomQuestion.equals(plus) && Integer.parseInt(answer) == resultPlus
-//                    || randomQuestion.equals(minus) && Integer.parseInt(answer) == resultMinus
-//                    || randomQuestion.equals(mult) && Integer.parseInt(answer) == resultMult) {
-//                System.out.println("Correct!");
-//                count++;
-//
-//            } else {
-//                if (randomQuestion.equals(plus)) {
-//                    System.out.println("'" + answer + "'" + " is wrong answer ;(. " +
-//                            "Correct answer was " + "'" + resultPlus + "'" + ".\n"
-//                            + "Let's try again, "
-//                            + name
-//                            + "!");
-//                } else if (randomQuestion.equals(minus)){
-//                    System.out.println("'" + answer + "'" + " is wrong answer ;(. " +
-//                            "Correct answer was " + "'" + resultMinus + "'" + ".\n"
-//                            + "Let's try again, "
-//                            + name
-//                            + "!");
-//                } else {
-//                    System.out.println("'" + answer + "'" + " is wrong answer ;(. " +
-//                            "Correct answer was " + "'" + resultMult + "'" + ".\n"
-//                            + "Let's try again, "
-//                            + name
-//                            + "!");
-//                }
-//                count = 0;
-//                return count;
-//            }
-//        }
-//        System.out.println("Congratulations, " + name + "!");
-//        return count;
-//    }
-//}
-//

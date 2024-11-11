@@ -25,7 +25,7 @@ public class Engine {
 
             } else {
                 System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. "
-                        + "Correct answer was " + "'" + correctAnswer[i] + "'" + "."
+                        + "Correct answer was " + "'" + correctAnswer[i] + "'" + ". \n"
                         + "Let's try again, "
                         + name
                         + "!");
