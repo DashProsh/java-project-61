@@ -4,7 +4,3 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/DashProsh/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/DashProsh/java-project-61/actions)
 
-**Game №2Even**
-
-View the recording at:
-[![asciicast](https://asciinema.org/a/7psX8BrLJUo8XcUTUS0IynlEH.svg)](https://asciinema.org/a/7psX8BrLJUo8XcUTUS0IynlEH)
