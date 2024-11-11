@@ -1,11 +1,13 @@
 package hexlet.code;
 
+
 import java.util.Scanner;
 
 public class Engine {
     public static final int rounds = 3;
 
     public static void skeletonOfGames(String mainGameQuestion, String[] question, String[] correctAnswer) {
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("""
                 Welcome to the Brain Games!
@@ -35,12 +37,3 @@ public class Engine {
         System.out.println("Congratulations, " + name + "!");
     }
 }
-
-
-
-
-//import java.util.Arrays;
-//import java.util.List;
-//import java.util.Scanner;
-//import java.util.Random;
-//import hexlet.code.Engine;

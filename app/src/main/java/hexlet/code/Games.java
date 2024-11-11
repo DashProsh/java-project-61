@@ -63,6 +63,7 @@ public class Games {
     }
 
 
+
     // Game №4 GCD
     public static int gcd() {
         Random random = new Random();
@@ -88,6 +89,36 @@ public class Games {
         Engine.skeletonOfGames(mainGameQuestion, question, correctAnswer);
         return 0;
     }
+
+
+
+    // Game №5 Progression
+    public static int progression() {
+        Random random = new Random();
+        String mainGameQuestion = "What number is missing in the progression?";
+
+        String[] question = new String[Engine.rounds];
+        String[] correctAnswer = new String[Engine.rounds];
+
+        for (var i = 0; i < Engine.rounds; i++) {
+
+            int[] array = new int[10];
+
+            int step = random.nextInt(9) + 1;
+            int start = random.nextInt(14) + 1;
+
+            for (int j = 0; j < 10; j++) {
+                array[j] = start + j * step;
+            }
+
+            int indexFromArray = random.nextInt(9);
+            String arrayToString = Arrays.toString(array);
+            String hideNumber = arrayToString.replaceAll(String.valueOf(array[indexFromArray]), "..");
+            question[i] = hideNumber;
+            correctAnswer[i] = String.valueOf(array[indexFromArray]);
+
+        }
+        Engine.skeletonOfGames(mainGameQuestion, question, correctAnswer);
+        return 0;
+    }
 }
-
-

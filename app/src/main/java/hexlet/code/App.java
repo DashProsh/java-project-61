@@ -12,6 +12,7 @@ public class App {
                 2 - Even
                 3 - Calc
                 4 - GCD
+                5 - Progression
                 0 - Exit
                 Your choice:""");
 
@@ -27,6 +28,8 @@ public class App {
             case "3" -> Games.calc();
 
             case "4" -> Games.gcd();
+
+            case "5" -> Games.progression();
 
             default -> System.out.println("Invalid choice, please try again.");
 
