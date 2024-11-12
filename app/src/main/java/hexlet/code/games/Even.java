@@ -1,4 +1,4 @@
-package hexlet.code.Games;
+package hexlet.code.games;
 
 import hexlet.code.Engine;
 
@@ -10,10 +10,10 @@ public class Even {
         Random random = new Random();
         String mainGameQuestion = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-        String[] question = new String[Engine.rounds];
-        String[] correctAnswer = new String[Engine.rounds];
+        String[] question = new String[Engine.ROUNDS];
+        String[] correctAnswer = new String[Engine.ROUNDS];
 
-        for (var i = 0; i < Engine.rounds; i++) {
+        for (var i = 0; i < Engine.ROUNDS; i++) {
             int randomNumber = random.nextInt(99) + 1;
             question[i] = Integer.toString(randomNumber);
             correctAnswer[i] = (randomNumber % 2 == 0) ? "yes" : "no";

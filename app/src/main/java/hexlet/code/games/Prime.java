@@ -1,4 +1,4 @@
-package hexlet.code.Games;
+package hexlet.code.games;
 
 import hexlet.code.Engine;
 
@@ -10,10 +10,10 @@ public class Prime {
         Random random = new Random();
         String mainGameQuestion = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-        String[] question = new String[Engine.rounds];
-        String[] correctAnswer = new String[Engine.rounds];
+        String[] question = new String[Engine.ROUNDS];
+        String[] correctAnswer = new String[Engine.ROUNDS];
 
-        for (var i = 0; i < Engine.rounds; i++) {
+        for (var i = 0; i < Engine.ROUNDS; i++) {
             int randomNumber = random.nextInt(20) + 2;
             question[i] = Integer.toString(randomNumber);
 
@@ -23,7 +23,8 @@ public class Prime {
                 if (randomNumber % j == 0) {
                     isPrime = false;
                     break;
-                } isPrime = true;
+                }
+                isPrime = true;
 
             } correctAnswer[i] = isPrime ? "yes" : "no";
         }

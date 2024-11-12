@@ -1,4 +1,4 @@
-package hexlet.code.Games;
+package hexlet.code.games;
 
 import hexlet.code.Engine;
 
@@ -10,10 +10,10 @@ public class Progression {
         Random random = new Random();
         String mainGameQuestion = "What number is missing in the progression?";
 
-        String[] question = new String[Engine.rounds];
-        String[] correctAnswer = new String[Engine.rounds];
+        String[] question = new String[Engine.ROUNDS];
+        String[] correctAnswer = new String[Engine.ROUNDS];
 
-        for (var i = 0; i < Engine.rounds; i++) {
+        for (var i = 0; i < Engine.ROUNDS; i++) {
 
             int arrayLength = random.nextInt(5) + 5;
             int[] array = new int[arrayLength];
