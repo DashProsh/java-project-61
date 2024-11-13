@@ -20,9 +20,9 @@ public class Calc {
             int randomNumber1 = random.nextInt(19) + 1;
             int randomNumber2 = random.nextInt(9) + 1;
 
-            String plus = randomNumber1 + "+" + randomNumber2;
-            String minus = randomNumber1 + "-" + randomNumber2;
-            String mult = randomNumber1 + "*" + randomNumber2;
+            String plus = randomNumber1 + " + " + randomNumber2;
+            String minus = randomNumber1 + " - " + randomNumber2;
+            String mult = randomNumber1 + " * " + randomNumber2;
 
             List<String> randomExpression = Arrays.asList(plus, minus, mult);
             Random rand = new Random();
