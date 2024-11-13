@@ -33,9 +33,10 @@ Build Status
 
 * Игра №6 Простое ли число
 
-Игроку предоставляется рандомное число. Игрок должен дать верный ответ: "да" или "нет", в зависимостри от того простое число или нет.```
+Игроку предоставляется рандомное число. Игрок должен дать верный ответ: "да" или "нет", в зависимостри от того простое число или нет.
+```
 
-
+eng
 ```bash
 In this project were implemented 5 games. 
 To start, the player is presented with a menu where they can choose a game. 
@@ -61,9 +62,10 @@ The player is given a randomized progression of numbers with one number missed. 
 
 * Game №6 Whether the number is simple
 
-The player is given a random number. The player must give the correct answer: "yes" or "no", depending on whether the number is prime or not.```
+The player is given a random number. The player must give the correct answer: "yes" or "no", depending on whether the number is prime or not.
+```
 
-
+games
 ## Game №2 Even
 
 [![asciicast](https://asciinema.org/a/hK7HviHFAaJmAvHjga0E44ZT3.svg)](https://asciinema.org/a/hK7HviHFAaJmAvHjga0E44ZT3.svg)
