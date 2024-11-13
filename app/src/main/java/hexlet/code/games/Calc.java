@@ -10,6 +10,9 @@ import java.util.Random;
 public class Calc {
     public static int calc() {
 
+        final int maxRandomNumber1 = 19;
+        final int maxRandomNumber2 = 9;
+
         Random random = new Random();
         String mainGameQuestion = "What is the result of the expression?";
 
@@ -17,8 +20,8 @@ public class Calc {
         String[] correctAnswer = new String[Engine.ROUNDS];
 
         for (var i = 0; i < Engine.ROUNDS; i++) {
-            int randomNumber1 = random.nextInt(19) + 1;
-            int randomNumber2 = random.nextInt(9) + 1;
+            int randomNumber1 = random.nextInt(maxRandomNumber1) + 1;
+            int randomNumber2 = random.nextInt(maxRandomNumber2) + 1;
 
             String plus = randomNumber1 + " + " + randomNumber2;
             String minus = randomNumber1 + " - " + randomNumber2;

@@ -24,14 +24,14 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
-    finalizedBy("jacocoTestReport") // Ссылаемся на задачу по имени, чтобы она выполнялась после тестов
+    finalizedBy("jacocoTestReport")
 }
 
 tasks.named<JacocoReport>("jacocoTestReport") {
-    dependsOn(tasks.test) // Задаем зависимость от задачи тестирования
+    dependsOn(tasks.test)
     reports {
-        xml.required.set(true)  // Генерация XML отчета
-        html.required.set(true) // Генерация HTML отчета
+        xml.required.set(true)
+        html.required.set(true)
     }
 }
 

@@ -7,6 +7,8 @@ import java.util.Random;
 public class Prime {
     public static int prime() {
 
+        final int maxRandomNumber = 20;
+
         Random random = new Random();
         String mainGameQuestion = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
@@ -14,7 +16,7 @@ public class Prime {
         String[] correctAnswer = new String[Engine.ROUNDS];
 
         for (var i = 0; i < Engine.ROUNDS; i++) {
-            int randomNumber = random.nextInt(20) + 2;
+            int randomNumber = random.nextInt(maxRandomNumber) + 2;
             question[i] = Integer.toString(randomNumber);
 
             boolean isPrime = true;

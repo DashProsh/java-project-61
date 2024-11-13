@@ -7,6 +7,11 @@ import java.util.Random;
 
 public class Progression {
     public static int progression() {
+
+        final int minArrayLength = 5;
+        final int maxStep = 9;
+        final int maxStartValue = 14;
+
         Random random = new Random();
         String mainGameQuestion = "What number is missing in the progression?";
 
@@ -15,11 +20,11 @@ public class Progression {
 
         for (var i = 0; i < Engine.ROUNDS; i++) {
 
-            int arrayLength = random.nextInt(5) + 5;
+            int arrayLength = random.nextInt(minArrayLength) + minArrayLength;
             int[] array = new int[arrayLength];
 
-            int step = random.nextInt(9) + 1;
-            int start = random.nextInt(14) + 1;
+            int step = random.nextInt(maxStep) + 1;
+            int start = random.nextInt(maxStartValue) + 1;
 
             for (int j = 0; j < arrayLength; j++) {
                 array[j] = start + j * step;
