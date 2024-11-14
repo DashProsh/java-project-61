@@ -68,20 +68,20 @@ The player is given a random number. The player must give the correct answer: "y
 games
 ## Game №2 Even
 
-[![asciicast](https://asciinema.org/a/hK7HviHFAaJmAvHjga0E44ZT3.svg)](https://asciinema.org/a/hK7HviHFAaJmAvHjga0E44ZT3.svg)
+[![asciicast](https://asciinema.org/a/hK7HviHFAaJmAvHjga0E44ZT3.svg)](https://asciinema.org/a/hK7HviHFAaJmAvHjga0E44ZT3)
 
 ## Game №3 Calculator
 
-[![asciicast](https://asciinema.org/a/sfGAsetHDxwY6ZZAokfmChZiN.svg)](https://asciinema.org/a/sfGAsetHDxwY6ZZAokfmChZiN.svg)
+[![asciicast](https://asciinema.org/a/sfGAsetHDxwY6ZZAokfmChZiN.svg)](https://asciinema.org/a/sfGAsetHDxwY6ZZAokfmChZiN)
 
 ## Game №4 Gcd
 
-[![asciicast](https://asciinema.org/a/AzDtyGmZIQdAyPeMScHDvbqOP.svg)](https://asciinema.org/a/AzDtyGmZIQdAyPeMScHDvbqOP.svg)
+[![asciicast](https://asciinema.org/a/AzDtyGmZIQdAyPeMScHDvbqOP.svg)](https://asciinema.org/a/AzDtyGmZIQdAyPeMScHDvbqOP)
 
 ## Game №5 Progression
 
-[![asciicast](https://asciinema.org/a/Nbpm687D7OyU10QvPj5BOXlUI.svg)](https://asciinema.org/a/Nbpm687D7OyU10QvPj5BOXlUI.svg)
+[![asciicast](https://asciinema.org/a/Nbpm687D7OyU10QvPj5BOXlUI.svg)](https://asciinema.org/a/Nbpm687D7OyU10QvPj5BOXlUI)
 
 ## Game №6 Prime
 
-[![asciicast](https://asciinema.org/a/Z79YTaMJKpz2YCw2keBHftJWz.svg)](https://asciinema.org/a/Z79YTaMJKpz2YCw2keBHftJWz.svg)
+[![asciicast](https://asciinema.org/a/Z79YTaMJKpz2YCw2keBHftJWz.svg)](https://asciinema.org/a/Z79YTaMJKpz2YCw2keBHftJWz)
