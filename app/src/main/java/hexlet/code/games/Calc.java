@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,18 +11,18 @@ import java.util.Random;
 public class Calc {
     public static int calc() {
 
-        final int maxRandomNumber1 = 19;
-        final int maxRandomNumber2 = 9;
-
-        Random random = new Random();
+        //Random random = new Random();
         String mainGameQuestion = "What is the result of the expression?";
 
         String[] question = new String[Engine.ROUNDS];
         String[] correctAnswer = new String[Engine.ROUNDS];
 
         for (var i = 0; i < Engine.ROUNDS; i++) {
-            int randomNumber1 = random.nextInt(maxRandomNumber1) + 1;
-            int randomNumber2 = random.nextInt(maxRandomNumber2) + 1;
+            final int maxRandomNumber1 = 19;
+            final int maxRandomNumber2 = 9;
+
+            int randomNumber1 = Utils.getRandomInt(maxRandomNumber1);
+            int randomNumber2 = Utils.getRandomInt(maxRandomNumber2);
 
             String plus = randomNumber1 + " + " + randomNumber2;
             String minus = randomNumber1 + " - " + randomNumber2;

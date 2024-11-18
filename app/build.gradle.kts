@@ -40,7 +40,6 @@ tasks.jacocoTestReport {
     }
 }
 
-
 tasks.getByName<JavaExec>("run") {
     standardInput = System.`in`
 }
