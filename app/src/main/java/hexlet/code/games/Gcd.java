@@ -8,12 +8,11 @@ import java.util.Random;
 
 
 public class Gcd {
-    public static int gcd() {
+    public static void gcd() {
 
         String mainGameQuestion = "Find the greatest common divisor of given numbers.";
 
-        String[] question = new String[Engine.ROUNDS];
-        String[] correctAnswer = new String[Engine.ROUNDS];
+        String[][] eachRound = new String[Engine.ROUNDS][2];
 
         for (var i = 0; i < Engine.ROUNDS; i++) {
 
@@ -29,10 +28,13 @@ public class Gcd {
 
             String gcd = String.valueOf((bigA).gcd(bigB));
 
-            question[i] = randomNumber1 + " " + randomNumber2;
-            correctAnswer[i] = gcd;
+            String question = randomNumber1 + " " + randomNumber2;
+            String correctAnswer = gcd;
+
+            eachRound[i][0] = question;
+            eachRound[i][1] = correctAnswer;
         }
-        Engine.skeletonOfGames(mainGameQuestion, question, correctAnswer);
-        return 0;
+        Engine.skeletonOfGames(mainGameQuestion, eachRound);
+        //return 0;
     }
 }

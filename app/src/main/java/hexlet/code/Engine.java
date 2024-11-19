@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Engine {
     public static final int ROUNDS = 10;
 
-    public static void skeletonOfGames(String mainGameQuestion, String[] question, String[] correctAnswer) {
+    public static void skeletonOfGames(String mainGameQuestion,String[][] eachRound) {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("""
@@ -17,16 +17,16 @@ public class Engine {
         System.out.println(mainGameQuestion);
 
         for (var i = 0; i < ROUNDS; i++) {
-            System.out.println("Question: " + question[i]);
+            System.out.println("Question: " + eachRound[i][0]);
             System.out.println("Your answer: ");
             String userAnswer = scanner.nextLine();
 
-            if (userAnswer.equals(correctAnswer[i])) {
+            if (userAnswer.equals(eachRound[i][1])) {
                 System.out.println("Correct!");
 
             } else {
                 System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. "
-                        + "Correct answer was " + "'" + correctAnswer[i] + "'" + ". \n"
+                        + "Correct answer was " + "'" + eachRound[i][1] + "'" + ". \n"
                         + "Let's try again, "
                         + name
                         + "!");

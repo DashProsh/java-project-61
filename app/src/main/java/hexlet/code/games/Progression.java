@@ -6,12 +6,11 @@ import hexlet.code.Utils;
 import java.util.Arrays;
 
 public class Progression {
-    public static int progression() {
+    public static void progression() {
 
         String mainGameQuestion = "What number is missing in the progression?";
 
-        String[] question = new String[Engine.ROUNDS];
-        String[] correctAnswer = new String[Engine.ROUNDS];
+        String[][] eachRound = new String[Engine.ROUNDS][2];
 
         for (var i = 0; i < Engine.ROUNDS; i++) {
 
@@ -38,12 +37,13 @@ public class Progression {
             arrayHideNumber = arrayHideNumber.replace("[", "").replace("]", "")
                     .replace(",", "");
 
-            question[i] = arrayHideNumber;
-            correctAnswer[i] = String.valueOf(array[indexFromArray]);
+            String question = arrayHideNumber;
+            String correctAnswer = String.valueOf(array[indexFromArray]);
 
+            eachRound[i][0] = question;
+            eachRound[i][1] = correctAnswer;
         }
-        Engine.skeletonOfGames(mainGameQuestion, question, correctAnswer);
-        return 0;
+        Engine.skeletonOfGames(mainGameQuestion, eachRound);
+        //return 0;
     }
-
 }

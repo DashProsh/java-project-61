@@ -7,15 +7,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-
 public class Calc {
-    public static int calc() {
+    public static void calc() {
 
-        //Random random = new Random();
         String mainGameQuestion = "What is the result of the expression?";
 
-        String[] question = new String[Engine.ROUNDS];
-        String[] correctAnswer = new String[Engine.ROUNDS];
+        String[][] eachRound = new String[Engine.ROUNDS][2];
 
         for (var i = 0; i < Engine.ROUNDS; i++) {
             final int maxRandomNumber1 = 19;
@@ -30,20 +27,21 @@ public class Calc {
 
             List<String> randomExpression = Arrays.asList(plus, minus, mult);
             Random rand = new Random();
-            String randomQuestion = randomExpression.get(rand.nextInt(randomExpression.size()));
 
-            question[i] = randomQuestion;
+            String question = randomExpression.get(rand.nextInt(randomExpression.size()));
+            String correctAnswer;
 
-            if (randomQuestion.equals(plus)) {
-                correctAnswer[i] = String.valueOf(randomNumber1 + randomNumber2);
-            } else if (randomQuestion.equals(minus)) {
-                correctAnswer[i] = String.valueOf(randomNumber1 - randomNumber2);
+            if (question.equals(plus)) {
+                correctAnswer = String.valueOf(randomNumber1 + randomNumber2);
+            } else if (question.equals(minus)) {
+                correctAnswer = String.valueOf(randomNumber1 - randomNumber2);
             } else {
-                correctAnswer[i] = String.valueOf(randomNumber1 * randomNumber2);
+                correctAnswer = String.valueOf(randomNumber1 * randomNumber2);
             }
+            eachRound[i][0] = question;
+            eachRound[i][1] = correctAnswer;
         }
-        Engine.skeletonOfGames(mainGameQuestion, question, correctAnswer);
-        return 0;
+        Engine.skeletonOfGames(mainGameQuestion, eachRound);
+        //return 0;
     }
-
 }
