@@ -30,15 +30,15 @@ public class App {
 
             case "0" -> Cli.sayGoodbye();
 
-            case "2" -> Even.even();
+            case "2" -> Even.transferDataToEngine();
 
-            case "3" -> Calc.calc();
+            case "3" -> Calc.transferDataToEngine();
 
-            case "4" -> Gcd.gcd();
+            case "4" -> Gcd.transferDataToEngine();
 
-            case "5" -> Progression.progression();
+            case "5" -> Progression.transferDataToEngine();
 
-            case "6" -> Prime.prime();
+            case "6" -> Prime.transferDataToEngine();
 
             default -> System.out.println("Invalid choice, please try again.");
 

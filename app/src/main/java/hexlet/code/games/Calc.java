@@ -8,40 +8,49 @@ import java.util.List;
 import java.util.Random;
 
 public class Calc {
-    public static void calc() {
 
-        String mainGameQuestion = "What is the result of the expression?";
+    private static final int MAX_RANDOM_NUMBER1 = 19;
+    private static final int MAX_RANDOM_NUMBER2 = 9;
+
+    public static String[] dataForGame() {
+        int randomNumber1 = Utils.getRandomInt(MAX_RANDOM_NUMBER1);
+        int randomNumber2 = Utils.getRandomInt(MAX_RANDOM_NUMBER2);
+
+        String plus = randomNumber1 + " + " + randomNumber2;
+        String minus = randomNumber1 + " - " + randomNumber2;
+        String mult = randomNumber1 + " * " + randomNumber2;
+
+        List<String> randomExpression = Arrays.asList(plus, minus, mult);
+        Random rand = new Random();
+
+        String question = randomExpression.get(rand.nextInt(randomExpression.size()));
+        String correctAnswer;
+
+        if (question.equals(plus)) {
+            correctAnswer = String.valueOf(randomNumber1 + randomNumber2);
+        } else if (question.equals(minus)) {
+            correctAnswer = String.valueOf(randomNumber1 - randomNumber2);
+        } else {
+            correctAnswer = String.valueOf(randomNumber1 * randomNumber2);
+        }
+        return new String[]{question, correctAnswer};
+    }
+
+
+    public static String[][] prepareDataForEngine() {
 
         String[][] eachRound = new String[Engine.ROUNDS][2];
 
         for (var i = 0; i < Engine.ROUNDS; i++) {
-            final int maxRandomNumber1 = 19;
-            final int maxRandomNumber2 = 9;
-
-            int randomNumber1 = Utils.getRandomInt(maxRandomNumber1);
-            int randomNumber2 = Utils.getRandomInt(maxRandomNumber2);
-
-            String plus = randomNumber1 + " + " + randomNumber2;
-            String minus = randomNumber1 + " - " + randomNumber2;
-            String mult = randomNumber1 + " * " + randomNumber2;
-
-            List<String> randomExpression = Arrays.asList(plus, minus, mult);
-            Random rand = new Random();
-
-            String question = randomExpression.get(rand.nextInt(randomExpression.size()));
-            String correctAnswer;
-
-            if (question.equals(plus)) {
-                correctAnswer = String.valueOf(randomNumber1 + randomNumber2);
-            } else if (question.equals(minus)) {
-                correctAnswer = String.valueOf(randomNumber1 - randomNumber2);
-            } else {
-                correctAnswer = String.valueOf(randomNumber1 * randomNumber2);
-            }
-            eachRound[i][0] = question;
-            eachRound[i][1] = correctAnswer;
+            eachRound[i] = dataForGame();
         }
-        Engine.skeletonOfGames(mainGameQuestion, eachRound);
-        //return 0;
+        return eachRound;
+    }
+
+
+    public static void transferDataToEngine() {
+        String mainGameQuestion = "What is the result of the expression?";
+        String[][] rounds = prepareDataForEngine();
+        Engine.skeletonOfGames(mainGameQuestion, rounds);
     }
 }

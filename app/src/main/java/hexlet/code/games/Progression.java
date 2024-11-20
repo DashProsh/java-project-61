@@ -6,44 +6,51 @@ import hexlet.code.Utils;
 import java.util.Arrays;
 
 public class Progression {
-    public static void progression() {
 
-        String mainGameQuestion = "What number is missing in the progression?";
+    private static final int MIN_ARRAY_LENGTH = 5;
+    private static final int MAX_STEP = 9;
+    private static final int MAX_START_VALUE = 14;
+
+    public static String[] dataForGame() {
+
+        int arrayLength = Utils.getRandomInt(MIN_ARRAY_LENGTH) + MIN_ARRAY_LENGTH;
+        int[] array = new int[arrayLength];
+
+        int step = Utils.getRandomInt(MAX_STEP);
+        int start = Utils.getRandomInt(MAX_START_VALUE);
+
+        for (int j = 0; j < arrayLength; j++) {
+            array[j] = start + j * step;
+        }
+
+        int indexFromArray = Utils.getRandomInt(MIN_ARRAY_LENGTH - 1);
+
+        String arrayToString = Arrays.toString(array);
+        String elementToHide = String.valueOf(array[indexFromArray]);
+        String oneElement = "\\b" + elementToHide + "\\b";
+        String arrayHideNumber = arrayToString.replaceFirst(oneElement, "..");
+        arrayHideNumber = arrayHideNumber.replace("[", "").replace("]", "")
+                .replace(",", "");
+
+        String question = arrayHideNumber;
+        String correctAnswer = String.valueOf(array[indexFromArray]);
+
+        return new String[]{question, correctAnswer};
+    }
+
+    public static String[][] prepareDataForEngine() {
 
         String[][] eachRound = new String[Engine.ROUNDS][2];
 
         for (var i = 0; i < Engine.ROUNDS; i++) {
-
-            final int minArrayLength = 5;
-            final int maxStep = 9;
-            final int maxStartValue = 14;
-
-            int arrayLength = Utils.getRandomInt(minArrayLength) + minArrayLength;
-            int[] array = new int[arrayLength];
-
-            int step = Utils.getRandomInt(maxStep);
-            int start = Utils.getRandomInt(maxStartValue);
-
-            for (int j = 0; j < arrayLength; j++) {
-                array[j] = start + j * step;
-            }
-
-            int indexFromArray = Utils.getRandomInt(minArrayLength - 1);
-
-            String arrayToString = Arrays.toString(array);
-            String elementToHide = String.valueOf(array[indexFromArray]);
-            String oneElement = "\\b" + elementToHide + "\\b";
-            String arrayHideNumber = arrayToString.replaceFirst(oneElement, "..");
-            arrayHideNumber = arrayHideNumber.replace("[", "").replace("]", "")
-                    .replace(",", "");
-
-            String question = arrayHideNumber;
-            String correctAnswer = String.valueOf(array[indexFromArray]);
-
-            eachRound[i][0] = question;
-            eachRound[i][1] = correctAnswer;
+            eachRound[i] = dataForGame();
         }
-        Engine.skeletonOfGames(mainGameQuestion, eachRound);
-        //return 0;
+        return eachRound;
+    }
+
+    public static void transferDataToEngine() {
+        String mainGameQuestion = "What number is missing in the progression?";
+        String[][] rounds = prepareDataForEngine();
+        Engine.skeletonOfGames(mainGameQuestion, rounds);
     }
 }
