@@ -7,30 +7,33 @@ public class Even {
 
     private static final int MAX_RANDOM_NUMBER = 99;
 
-    public static String[] dataForGame() {
+    public static boolean trueOrFalse(int randomNumber) {
+        return randomNumber % 2 == 0;
+    }
 
-        int randomNumber = Utils.getRandomInt(MAX_RANDOM_NUMBER);
+    public static String[] dataForGame(int randomNumber) {
 
         String question = Integer.toString(randomNumber);
-        String correctAnswer = (randomNumber % 2 == 0) ? "yes" : "no";
+        String correctAnswer = trueOrFalse(randomNumber) ? "yes" : "no";
 
         return new String[]{question, correctAnswer};
     }
 
 
-    public static String[][] prepareDataForEngine() {
+    public static String[][] prepareData() {
 
         String[][] eachRound = new String[Engine.ROUNDS][2];
 
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            eachRound[i] = dataForGame();
+            int randomNumber = Utils.getRandomInt(MAX_RANDOM_NUMBER);
+            eachRound[i] = dataForGame(randomNumber);
         }
         return eachRound;
     }
 
     public static void transferDataToEngine() {
         String mainGameQuestion = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        String[][] rounds = prepareDataForEngine();
+        String[][] rounds = prepareData();
         Engine.skeletonOfGames(mainGameQuestion, rounds);
     }
 }

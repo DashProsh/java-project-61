@@ -3,8 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 public class Calc {
@@ -12,37 +10,50 @@ public class Calc {
     private static final int MAX_RANDOM_NUMBER1 = 19;
     private static final int MAX_RANDOM_NUMBER2 = 9;
 
-    public static String[] dataForGame() {
-        int randomNumber1 = Utils.getRandomInt(MAX_RANDOM_NUMBER1);
-        int randomNumber2 = Utils.getRandomInt(MAX_RANDOM_NUMBER2);
+    public static String calculateResult(int randomNumber1, int randomNumber2, String randomOperator) {
 
-        String plus = randomNumber1 + " + " + randomNumber2;
-        String minus = randomNumber1 + " - " + randomNumber2;
-        String mult = randomNumber1 + " * " + randomNumber2;
+        int resultOfExpression;
 
-        List<String> randomExpression = Arrays.asList(plus, minus, mult);
-        Random rand = new Random();
-
-        String question = randomExpression.get(rand.nextInt(randomExpression.size()));
-        String correctAnswer;
-
-        if (question.equals(plus)) {
-            correctAnswer = String.valueOf(randomNumber1 + randomNumber2);
-        } else if (question.equals(minus)) {
-            correctAnswer = String.valueOf(randomNumber1 - randomNumber2);
-        } else {
-            correctAnswer = String.valueOf(randomNumber1 * randomNumber2);
+        switch (randomOperator) {
+            case "+" -> {
+                int result = randomNumber1 + randomNumber2;
+                resultOfExpression = result;
+            }
+            case "-" -> {
+                int result = randomNumber1 - randomNumber2;
+                resultOfExpression = result;
+            }
+            case "*" -> {
+                int result = randomNumber1 * randomNumber2;
+                resultOfExpression = result;
+            }
+            default -> throw new IllegalStateException("Unexpected value: " + randomOperator);
         }
+        return String.valueOf(resultOfExpression);
+    }
+
+
+    public static String[] dataForGame(int randomNumber1, int randomNumber2, String randomOperator) {
+
+        String question = randomNumber1 + " " + randomOperator + " " + randomNumber2;
+        String correctAnswer = calculateResult(randomNumber1, randomNumber2, randomOperator);
         return new String[]{question, correctAnswer};
     }
 
 
-    public static String[][] prepareDataForEngine() {
+    public static String[][] prepareData() {
 
         String[][] eachRound = new String[Engine.ROUNDS][2];
+        String[] operators = {"+", "-", "*"};
+        Random rand = new Random();
 
         for (var i = 0; i < Engine.ROUNDS; i++) {
-            eachRound[i] = dataForGame();
+
+            int randomNumber1 = Utils.getRandomInt(MAX_RANDOM_NUMBER1);
+            int randomNumber2 = Utils.getRandomInt(MAX_RANDOM_NUMBER2);
+            String randomOperator = operators[rand.nextInt(operators.length)];
+
+            eachRound[i] = dataForGame(randomNumber1, randomNumber2, randomOperator);
         }
         return eachRound;
     }
@@ -50,7 +61,7 @@ public class Calc {
 
     public static void transferDataToEngine() {
         String mainGameQuestion = "What is the result of the expression?";
-        String[][] rounds = prepareDataForEngine();
+        String[][] rounds = prepareData();
         Engine.skeletonOfGames(mainGameQuestion, rounds);
     }
 }
