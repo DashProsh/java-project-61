@@ -10,11 +10,11 @@ public class Gcd {
     private static final int MAX_RANDOM_COMMON = 10;
     private static final int MAX_RANDOM_NUMBER = 10;
 
-    public static String findGCD(int randomNumber1, int randomNumber2) {
+    public static BigInteger findGCD(int randomNumber1, int randomNumber2) {
         BigInteger bigA = BigInteger.valueOf(randomNumber1);
         BigInteger bigB = BigInteger.valueOf(randomNumber2);
 
-        String gcd = String.valueOf((bigA).gcd(bigB));
+        BigInteger gcd = ((bigA).gcd(bigB));
         return gcd;
     }
 
@@ -22,7 +22,7 @@ public class Gcd {
     public static String[] dataForGame(int randomNumber1, int randomNumber2) {
 
         String question = randomNumber1 + " " + randomNumber2;
-        String correctAnswer = findGCD(randomNumber1, randomNumber2);
+        String correctAnswer = String.valueOf(findGCD(randomNumber1, randomNumber2));
 
         return new String[]{question, correctAnswer};
     }
